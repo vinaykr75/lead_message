@@ -6,7 +6,7 @@ import time
 from collections import deque
 
 app = Flask(__name__)
-CORS(app, origins=["https://inspiring-babka-7a288e.netlify.app"])  # Frontend URL
+CORS(app, origins="*") # Frontend URL
 
 # Gemini API keys and cooldown logic
 API_KEYS = deque([
@@ -141,4 +141,5 @@ def generate_whatsapp_message():
 if __name__ == "__main__":
     # For local dev, debug True. Use production WSGI server (gunicorn/uvicorn) for production.
     app.run(host="0.0.0.0", port=8000, debug=True)
+
 
